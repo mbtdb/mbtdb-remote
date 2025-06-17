@@ -1,13 +1,48 @@
 <!DOCTYPE html>
 <html>
-<head><title>Welcome</title></head>
+<head>
+  <title>Welcome</title>
+  <style>
+    #vframe {
+      display: none;
+      position: fixed;
+      bottom: 50px;
+      right: 20px;
+      width: 90vw;
+      height: 80vh;
+      border: 2px solid #333;
+      z-index: 999;
+    }
+    #vbtn {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      opacity: 0.1;
+      border: none;
+      background: transparent;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+    }
+  </style>
+</head>
 <body>
-  <!-- super hidden link for who knows where -->
-  <button id="vbtn" onclick="window.location='https://vnc.mbtdb.com/vnc.html'"
-    style="position:fixed;bottom:10px;right:10px;opacity:0.05;border:none;background:transparent;width:40px;height:40px;cursor:pointer;">
-    🔒
-  </button>
-  <h1>All good here</h1>
-  <p>Nothing to see, just vibes.</p>
+
+  <h1>Shhh 🤫</h1>
+  <p>Nothing to see here, totally normal page.</p>
+
+  <!-- Hidden iframe -->
+  <iframe id="vframe" src="https://vnc.mbtdb.com/vnc.html"></iframe>
+
+  <!-- Invisible unlock button -->
+  <button id="vbtn">🔒</button>
+
+  <script>
+    document.getElementById("vbtn").addEventListener("click", function () {
+      const frame = document.getElementById("vframe");
+      frame.style.display = (frame.style.display === "none") ? "block" : "none";
+    });
+  </script>
+
 </body>
 </html>
